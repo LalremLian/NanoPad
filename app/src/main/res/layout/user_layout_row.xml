@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:id="@+id/user_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textSize="18sp"
+                android:textColor="#292828"
+                android:textStyle="bold"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/icon_delete"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="-5dp"
+                android:layout_marginRight="-8dp"
+                android:src="@drawable/ic_delete"
+                android:layout_alignParentRight="true"
+                android:background="#00000000"/>
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="5dp"
+            android:background="#E1E1E1"/>
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:text="Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the existing issues in this library before you create a new one. You can add your vote to an existing issue by clicking the star button."
+            android:layout_marginBottom="9dp"
+            android:textColor="#504E4E"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="4:36 PM"
+            android:textColor="#919090"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
