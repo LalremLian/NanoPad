@@ -44,6 +44,7 @@
                 android:id="@+id/icon_delete"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:visibility="gone"
                 android:layout_marginRight="10dp"
                 android:src="@drawable/ic_delete"
                 android:layout_toRightOf="@+id/icon_share"

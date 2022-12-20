@@ -22,6 +22,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Title"
+                android:ellipsize="end"
+                android:maxLines="2"
                 android:textSize="18sp"
                 android:textColor="#292828"
                 android:textStyle="bold"/>

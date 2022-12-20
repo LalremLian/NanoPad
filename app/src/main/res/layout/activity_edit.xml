@@ -22,9 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Title"
-            android:textSize="20sp"
-            android:textColor="#292828"
-            android:textStyle="bold"/>
+            android:textSize="23sp"
+            android:textColor="#292828"/>
 
         <EditText
             android:id="@+id/ed_text"
@@ -35,6 +34,7 @@
             android:gravity="top"
             android:inputType="textMultiLine"
             android:textSize="20sp"/>
+
     </LinearLayout>
 
 </LinearLayout>

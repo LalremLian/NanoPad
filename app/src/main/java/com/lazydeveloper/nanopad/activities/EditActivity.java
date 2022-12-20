@@ -4,6 +4,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
@@ -82,6 +83,9 @@ public class EditActivity extends AppCompatActivity {
 
     public void init()
     {
+        if (FLAG.equalsIgnoreCase("UPDATE")) {
+            activityEditBinding.toolbar.iconDelete.setVisibility(View.VISIBLE);
+        }
         activityEditBinding.toolbar.iconSave.setOnClickListener(v ->
         {
             stTitle = activityEditBinding.edTitle.getText().toString();
@@ -104,12 +108,61 @@ public class EditActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        activityEditBinding.toolbar.iconDelete.setOnClickListener(v ->
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Alert !");
+            builder.setMessage("Are you sure you want to delete \n" +"'" + user.getTitle() + "'" + " ?");
+
+            // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+            builder.setCancelable(true);
+
+            builder.setPositiveButton("Yes", (dialog, which) -> {
+                userDao.delete(user.getId());
+                Toast.makeText(this,"Successfully Deleted",Toast.LENGTH_LONG).show();
+                new Handler().postDelayed(this::finish,500);
+            });
+
+            builder.setNegativeButton("No", (dialog, which) -> {
+                dialog.cancel();
+            });
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+
+        });
     }
 
     @Override
     public boolean onSupportNavigateUp()
     {
-        onBackPressed();
+        stText = activityEditBinding.edText.getText().toString();
+        if(!stText.equalsIgnoreCase("")){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Alert !");
+            builder.setMessage("Press " + "'" + "yes" + "'" + " if you want to save your progress");
+
+            // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+            builder.setCancelable(true);
+
+            builder.setPositiveButton("Yes", (dialog, which) -> {
+//            userDao.delete(user.getId());
+//            Toast.makeText(this,"Successfully Deleted",Toast.LENGTH_LONG).show();
+//            new Handler().postDelayed(this::finish,500);
+                onBackPressed();
+            });
+
+            builder.setNegativeButton("No", (dialog, which) -> dialog.cancel());
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+        }else {
+            onBackPressed();
+        }
+
+
+
         return true;
     }
 

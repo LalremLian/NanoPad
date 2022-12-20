@@ -77,14 +77,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             // Create the object of AlertDialog Builder class
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle("Alert !");
-            builder.setMessage("Are you sure you want to delete ?");
+            builder.setMessage("Are you sure you want to delete \n" +"'" + user.getTitle() + "'" + " ?");
 
             // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
             builder.setCancelable(true);
 
             builder.setPositiveButton("Yes", (dialog, which) -> {
                 adapterListener.onDelete(user.getId(), position);
-                Toast.makeText(context,"Successfully Delete",Toast.LENGTH_LONG).show();
+                Toast.makeText(context,"Successfully Deleted",Toast.LENGTH_LONG).show();
             });
 
             builder.setNegativeButton("No", (dialog, which) -> {
